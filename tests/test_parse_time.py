@@ -1,6 +1,7 @@
 import unittest
 from ftpparser import parse_time
 import datetime
+import warnings
 
 DATE_OF_TEST = datetime.datetime(year=2000, month=6, day=1, tzinfo=datetime.timezone.utc)
 
@@ -26,4 +27,10 @@ class TestTime(unittest.TestCase):
         for line, dt in TEST_TIMES.items():
             output = parse_time.parse_time(line, now=DATE_OF_TEST)
             self.assertEqual(dt, output, 'Invalid response for: %s' % line)
-    
+
+    def test_default_now_does_not_warn(self):
+        with warnings.catch_warnings():
+            warnings.simplefilter('error', DeprecationWarning)
+            output = parse_time.parse_time('Jan 29 03:26')
+
+        self.assertEqual(datetime.timezone.utc, output.tzinfo)

@@ -38,7 +38,7 @@ def parse_time(line, now=None):
             hour = int(yr_match[1])
             minute = int(yr_match[2])
 
-            now = now or datetime.datetime.utcnow()
+            now = now or datetime.datetime.now(timezone.utc)
 
             if (now.month < month) or ((now.month == month) and (now.day < day)):
                 year = now.year - 1
