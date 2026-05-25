@@ -81,9 +81,9 @@ def parse_time(line, now=None):
     msdos_re = re.compile("^(\\d{2})" # month
         "-(\\d{2})" # day of month
         "-(\\d{2})" # year
-        "\\s+(\\d{2})" # hour
+        "\\s+(\\d{1,2})" # hour
         ":(\\d{2})" # minute
-        "([AP]M)$" # AM or PM
+        "([AP]M)?$" # optional AM or PM
     )
 
     match = msdos_re.fullmatch(line)
@@ -100,9 +100,10 @@ def parse_time(line, now=None):
         else:
             year += 1900
 
-        if hour == 12:
-            hour -= 12
-        if am_pm == "PM":
-            hour += 12
+        if am_pm:
+            if hour == 12:
+                hour -= 12
+            if am_pm == "PM":
+                hour += 12
 
         return datetime.datetime(year=year, month=month, day=day, hour=hour, minute=minute, second=0, tzinfo=timezone.utc)

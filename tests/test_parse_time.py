@@ -17,7 +17,9 @@ TEST_TIMES = {
     '8-SEP-2018 16:09': datetime.datetime(month=9, day=8, year=2018, hour=16, minute=9, tzinfo=datetime.timezone.utc),
     '04-27-00  09:09PM': datetime.datetime(month=4, day=27, year=2000, hour=21, minute=9, tzinfo=datetime.timezone.utc),
     '04-27-97  12:09PM': datetime.datetime(month=4, day=27, year=1997, hour=12, minute=9, tzinfo=datetime.timezone.utc),
-    '04-27-18  09:09AM': datetime.datetime(month=4, day=27, year=2018, hour=9, minute=9, tzinfo=datetime.timezone.utc)
+    '04-27-18  09:09AM': datetime.datetime(month=4, day=27, year=2018, hour=9, minute=9, tzinfo=datetime.timezone.utc),
+    '04-27-18  16:24': datetime.datetime(month=4, day=27, year=2018, hour=16, minute=24, tzinfo=datetime.timezone.utc),
+    '04-27-18  4:24': datetime.datetime(month=4, day=27, year=2018, hour=4, minute=24, tzinfo=datetime.timezone.utc)
 }
 
 class TestTime(unittest.TestCase):
@@ -26,4 +28,3 @@ class TestTime(unittest.TestCase):
         for line, dt in TEST_TIMES.items():
             output = parse_time.parse_time(line, now=DATE_OF_TEST)
             self.assertEqual(dt, output, 'Invalid response for: %s' % line)
-    

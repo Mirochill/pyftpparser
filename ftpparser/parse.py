@@ -226,7 +226,7 @@ class FTPParser(object):
         )
 
         # Regex for MSDOS 
-        self.msdos_re = re.compile("^(\\d{2}-\\d{2}-\\d{2}\\s+\\d{2}:\\d{2}[AP]M)" # date
+        self.msdos_re = re.compile("^(\\d{2}-\\d{2}-\\d{2}\\s+\\d{1,2}:\\d{2}(?:[AP]M)?)" # date
             "\\s+(<DIR>|[\\d]+)" # dir or size
             "\\s+(.+)$" # name
         )

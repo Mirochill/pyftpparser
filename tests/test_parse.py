@@ -63,6 +63,8 @@ TEST_CASES = [ \
         [('pub', 0, 963915360, 1, 0, 0, None)]),
     ('04-14-00  03:47PM                  589 readme.htm',
         [('readme.htm', 589, 955727220, 0, 1, 0, None)]),
+    ('04-14-00  16:24                  589 readme.htm',
+     [('readme.htm', 589, int(datetime.datetime(month=4, day=14, year=2000, hour=16, minute=24, tzinfo=datetime.timezone.utc).timestamp()), 0, 1, 0, None)]),
     # Some useless lines, safely ignored:
     ('Total of 11 Files, 10966 Blocks.',
         [None]),
