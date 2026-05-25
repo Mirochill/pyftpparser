@@ -20,6 +20,8 @@ TEST_CASES = [ \
         [('etc', 512, 765763200, 1, 0, 0, 'r-xr-xr-x')]),
     ('dr-xr-xr-x   2 root     512 Apr  8  1994 etc',
         [('etc', 512, 765763200, 1, 0, 0, 'r-xr-xr-x')]),
+    ('drwxrwxr-x   4 ec2-user ec2-user      77 Sep  7 05:50 data',
+        [('data', 77, 936683400, 1, 0, 0, 'rwxrwxr-x')]),
     ('-r-xr-xr-x   1 root  wheel  3258128 Nov 20  2000 kernel.GENERIC',
         [('kernel.GENERIC', 3258128, 974678400, 0, 1, 0, 'r-xr-xr-x')]),
     ('lrwxrwxrwx   1 root  wheel       11 Feb 22  2001 sys -> usr/src/sys',

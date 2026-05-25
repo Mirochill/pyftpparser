@@ -178,8 +178,8 @@ class FTPParser(object):
         self.unix_re = re.compile("^([-bcdlps])" # type
             "([-rwxXsStT]{1,9})" # permissions
             "\\s+(\\d+)" # hard link count
-            "\\s+(\\w+)" # owner
-            "\\s+(\\w+)" # group
+            "\\s+([\\w-]+)" # owner
+            "\\s+([\\w-]+)" # group
             "\\s+(\\d+)" # size
             "\\s+([A-Za-z]{3}\\s+\\d{1,2}\\s+[:\\d]{4,5})" # modification date
             "\\s(.+)$" # name
